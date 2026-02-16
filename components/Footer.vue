@@ -30,8 +30,8 @@
                  target="_blank">
                 <img :src="require('~/assets/images/tiktok.png')" alt="tiktok">
               </a>
-              <a :href="`//api.whatsapp.com/send?phone=${info.phone}&text=Hi`"
-                 v-if="info.phone"
+              <a :href="`//api.whatsapp.com/send?phone=${info.phoneAt}&text=Hi`"
+                 v-if="info.phoneAt"
                  class="social"
                  target="_blank">
                 <img :src="require('~/assets/images/whatsup.png')" alt="instagram">

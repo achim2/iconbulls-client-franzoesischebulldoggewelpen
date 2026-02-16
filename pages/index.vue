@@ -2,22 +2,21 @@
   <div>
     <!--  Hero  -->
     <section class="hero" :style="{ backgroundImage: 'url(' + require('@/assets/images/french_bulldog_0.JPG') + ')' }">
-      <!--      <div class="container">-->
       <div class="hero__inner">
         <h1 class="hero__title">{{ $t('hero title') }}</h1>
       </div>
-      <!--      </div>-->
     </section>
 
     <section class="breed-info">
       <div class="container">
-        <PageText :text="$t('home text 0')" class="mt-5"/>
+        <h2 class="hero__mobile">{{ $t('hero title') }}</h2>
+        <PageText :text="$t('home text 0')"/>
         <PageText :text="$t('home text 1')"/>
 
-<!--        <div class="text-center mb-5">-->
-<!--          <nuxtLink :to="localePath({name: 'french-bulldog'})" class="btn btn-info">{{ $t('frenchBulldog') }}</nuxtLink>-->
-<!--          <nuxtLink :to="localePath({name: 'dachshund'})" class="btn btn-info">{{ $t('dachshund') }}</nuxtLink>-->
-<!--        </div>-->
+        <!--        <div class="text-center mb-5">-->
+        <!--          <nuxtLink :to="localePath({name: 'french-bulldog'})" class="btn btn-info">{{ $t('frenchBulldog') }}</nuxtLink>-->
+        <!--          <nuxtLink :to="localePath({name: 'dachshund'})" class="btn btn-info">{{ $t('dachshund') }}</nuxtLink>-->
+        <!--        </div>-->
       </div>
     </section>
 
@@ -111,6 +110,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.hero__mobile {
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}
+
 .hero {
   position: relative;
   display: flex;
@@ -137,24 +142,17 @@ export default {
     }
   }
 
-  @include media-breakpoint-down(sm) {
-    margin-bottom: 80px;
-  }
-
   .hero__inner {
     max-width: 850px;
     margin: 0 auto;
     padding: 0 15px;
 
     @include media-breakpoint-up(md) {
-    max-width: 1024px;
+      max-width: 1024px;
       padding-bottom: 5rem;
     }
     @include media-breakpoint-down(sm) {
-      margin-bottom: -100px;
-    }
-    @include media-breakpoint-only(xs) {
-      margin-bottom: -140px;
+      display: none;
     }
   }
 
