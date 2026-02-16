@@ -48,15 +48,14 @@
 
             <b-nav-item :to="localePath({name: 'kontaktiere'})">{{ $t('contact') }}</b-nav-item>
 
-            <!-- Navbar dropdowns -->
-<!--            <b-nav-item-dropdown :text="$i18n.locale" right>-->
-<!--              <b-dropdown-item-->
-<!--                v-for="locale in availableLocales"-->
-<!--                :key="locale.code"-->
-<!--                @click="setLocale(locale.code)"-->
-<!--              >{{ locale.code }}-->
-<!--              </b-dropdown-item>-->
-<!--            </b-nav-item-dropdown>-->
+            <b-nav-item-dropdown :text="$i18n.locale" right v-if="$auth.loggedIn">
+              <b-dropdown-item
+                v-for="locale in availableLocales"
+                :key="locale.code"
+                @click="setLocale(locale.code)"
+              >{{ locale.code }}
+              </b-dropdown-item>
+            </b-nav-item-dropdown>
           </b-navbar-nav>
 
           <b-navbar-nav class="navbar-nav--admin" v-if="$auth.loggedIn">

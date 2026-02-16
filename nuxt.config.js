@@ -183,8 +183,8 @@ export default {
   i18n: {
     locales: [
       { code: 'de', iso: 'de-DE', file: 'de.js' },
-      // { code: 'hu', iso: 'hu-HU', file: 'hu.js' },
-      // { code: 'en', iso: 'en-US', file: 'en.js' },
+      { code: 'hu', iso: 'hu-HU', file: 'hu.js' },
+      { code: 'en', iso: 'en-US', file: 'en.js' },
     ],
     defaultLocale: 'en',
     lazy: true,
