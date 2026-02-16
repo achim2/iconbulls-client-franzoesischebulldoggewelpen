@@ -1,0 +1,87 @@
+<template>
+  <div class="container">
+
+    <ImageUpload
+      :title="title"
+      :images="images"
+      v-on:onSubmit="onSubmit"
+      v-on:onDelete="onDelete"
+      v-on:handleDragEnd="handleDragEnd"
+    />
+
+    <hr>
+
+    <div class="d-flex flex-wrap align-items-start pb-2">
+      <nuxtLink :to="localePath({name: 'product-edit', params: {id: this.id}})" class="btn btn-secondary mr-sm-2 mb-2">{{$t('back')}}</nuxtLink>
+      <nuxtLink :to="localePath({name: 'admin-products'})" class="btn btn-primary">{{$t('products')}}</nuxtLink>
+    </div>
+
+  </div>
+</template>
+
+<script>
+import ImageUpload from '@/components/ImageUpload';
+
+export default {
+  components: { ImageUpload },
+  layout: 'admin',
+  data() {
+    return {
+      id: '',
+      title: '',
+      images: [],
+    };
+  },
+  mounted() {
+    this.fetchImages();
+  },
+  methods: {
+    fetchImages() {
+      const id = this.id = this.$route.params.id;
+      if (id) {
+        this.$axios.$get(`/admin/products/${id}`)
+          .then(product => {
+            this.images = product.images;
+            this.title = product.name;
+          })
+          .catch(err => {
+            if (err.response.status === 404) {
+              this.$router.push(this.localePath({ name: 'admin-products' }));
+            }
+          });
+      }
+    },
+    onSubmit(formData) {
+      formData.append('productId', this.id);
+
+      this.$axios.$put(`/admin/products/images`, formData)
+        .then(res => {
+          this.images = res.product.images;
+          this.$notifier.showMessage({ message: [res.message], type: 'success' });
+        });
+    },
+    onDelete(filename) {
+      this.$axios.$post('/admin/products/images', {
+        userId: this.$auth.$state.user.id,
+        productId: this.id,
+        deletedImage: filename,
+      })
+        .then(res => {
+          this.images = res.product.images;
+          this.$notifier.showMessage({ message: [res.message], type: 'success' });
+        });
+    },
+    handleDragEnd(arr) {
+      this.$axios.$post('/admin/products/images/sorting', {
+        userId: this.$auth.$state.user.id,
+        productId: this.id,
+        images: arr,
+      })
+        .then(res => {
+          this.images = res.product.images;
+          this.$notifier.showMessage({ message: [res.message], type: 'success' });
+        });
+    }
+  },
+};
+</script>

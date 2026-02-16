@@ -1,0 +1,83 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.lazyload {
+  opacity: 0;
+}
+
+.lazyloading {
+  opacity: 1;
+  transition: opacity 300ms;
+  background: rgba(0, 0, 0, .5) url(~assets/images/loader.svg) no-repeat center;
+}
+
+img.lazyload:not([src]) {
+  visibility: hidden;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+[class*='container'] {
+  padding-right: 10px;
+  padding-left: 10px;
+
+  [class*='col-'] {
+    padding-bottom: 10px;
+  }
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100vh;
+
+  header,
+  nav,
+  main,
+  footer {
+    flex-shrink: 0;
+  }
+
+  .alert + main {
+    padding-top: 1rem;
+  }
+
+  main {
+    flex-grow: 1;
+    padding: $main-padding 0;
+  }
+}
+
+.layout.layout--default {
+  background: $white;
+  color: $text;
+  font-family: 'Josefin Sans', sans-serif;
+
+  p {
+    font-size: 16px;
+
+    @include media-breakpoint-up(md) {
+      font-size: 18px;
+    }
+  }
+}
+
+.layout.layout--admin {
+  .brand-logo {
+    position: initial;
+    width: $header-height;
+  }
+
+  .btn {
+    @include media-breakpoint-down(xs) {
+      width: 100%;
+    }
+  }
+}

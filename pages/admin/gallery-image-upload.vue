@@ -1,0 +1,64 @@
+<template>
+  <div class="container">
+
+    <ImageUpload
+      title="Gallery"
+      :images="images"
+      v-on:onSubmit="onSubmit"
+      v-on:onDelete="onDelete"
+      v-on:handleDragEnd="handleDragEnd"
+    />
+
+  </div>
+</template>
+
+<script>
+import ImageUpload from '@/components/ImageUpload';
+
+export default {
+  components: { ImageUpload },
+  layout: 'admin',
+  data() {
+    return {
+      images: [],
+    };
+  },
+  mounted() {
+    this.fetchImages();
+  },
+  methods: {
+    fetchImages() {
+      this.$axios.get('/admin/gallery')
+        .then(res => {
+          if (res && res.data && res.data) {
+            // add sorted arr to image upload
+            this.images = res.data.sort((a, b) => a.index - b.index);
+          }
+        });
+    },
+    onSubmit(formData) {
+      this.$axios.$post(`/admin/gallery`, formData)
+        .then(res => {
+          this.images = res.result;
+          this.$notifier.showMessage({ message: [res.message], type: 'success' });
+        });
+    },
+    onDelete(filename) {
+      this.$axios.$delete(`/admin/gallery/${filename}`)
+        .then(res => {
+          if (res.result) {
+            this.images = res.result;
+            this.$notifier.showMessage({ message: [res.message], type: 'success' });
+          }
+        });
+    },
+    handleDragEnd(arr) {
+      this.$axios.$put('/admin/gallery', { images: arr })
+        .then(res => {
+          this.images = res.result;
+          this.$notifier.showMessage({ message: [res.message], type: 'success' });
+        });
+    }
+  },
+};
+</script>
