@@ -29,16 +29,18 @@ export default {
     }
   },
   mounted() {
-    const browserLang = navigator.language.split('-')[0];
-    const availableLanguages = this.locales.map(lang => lang.code);
-    const localeFromLocalstorage = this.$storage.getLocale();
-    if (localeFromLocalstorage) {
-      this.setLocale(localeFromLocalstorage);
-    } else if (availableLanguages.includes(browserLang)) {
-      this.setLocale(browserLang);
-    } else {
-      this.active = true;
-    }
+    // const browserLang = navigator.language.split('-')[0];
+    // const availableLanguages = this.locales.map(lang => lang.code);
+    // const localeFromLocalstorage = this.$storage.getLocale();
+    // if (localeFromLocalstorage) {
+    //   this.setLocale(localeFromLocalstorage);
+    // } else if (availableLanguages.includes(browserLang)) {
+    //   this.setLocale(browserLang);
+    // } else {
+    //   this.active = true;
+    // }
+    // todo:
+    this.setLocale('de')
   },
   methods: {
     setLocale(locale) {

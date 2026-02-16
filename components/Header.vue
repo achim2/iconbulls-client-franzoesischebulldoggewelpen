@@ -30,12 +30,13 @@
           <b-navbar-nav class="ml-auto">
             <b-nav-item :to="localePath({name: 'index'})">{{ $t('home') }}</b-nav-item>
 
-            <b-nav-item-dropdown :text="$t('breed')">
-              <b-dropdown-item :to="localePath({name: 'french-bulldog'},)">{{ $t('frenchBulldog') }}</b-dropdown-item>
-              <b-dropdown-item :to="localePath({name: 'dachshund'})">{{ $t('dachshund') }}</b-dropdown-item>
-            </b-nav-item-dropdown>
+<!--            <b-nav-item-dropdown :text="$t('breed')">-->
+<!--              <b-dropdown-item :to="localePath({name: 'french-bulldog'},)">{{ $t('frenchBulldog') }}</b-dropdown-item>-->
+<!--              <b-dropdown-item :to="localePath({name: 'dachshund'})">{{ $t('dachshund') }}</b-dropdown-item>-->
+<!--            </b-nav-item-dropdown>-->
 
-            <b-nav-item :to="localePath({name: 'gallery'})">{{ $t('gallery') }}</b-nav-item>
+            <b-nav-item :to="localePath({name: 'breedDE'})">{{ $t('breed') }}</b-nav-item>
+            <b-nav-item :to="localePath({name: 'von-eigentuemern-gesendet'})">{{ $t('gallery') }}</b-nav-item>
             <b-nav-item :to="localePath({name: 'transport'})">{{ $t('transport') }}</b-nav-item>
 
             <b-nav-item-dropdown :text="$t('puppies')">
@@ -45,17 +46,17 @@
               </b-dropdown-item>
             </b-nav-item-dropdown>
 
-            <b-nav-item :to="localePath({name: 'contact'})">{{ $t('contact') }}</b-nav-item>
+            <b-nav-item :to="localePath({name: 'kontaktiere'})">{{ $t('contact') }}</b-nav-item>
 
             <!-- Navbar dropdowns -->
-            <b-nav-item-dropdown :text="$i18n.locale" right>
-              <b-dropdown-item
-                v-for="locale in availableLocales"
-                :key="locale.code"
-                @click="setLocale(locale.code)"
-              >{{ locale.code }}
-              </b-dropdown-item>
-            </b-nav-item-dropdown>
+<!--            <b-nav-item-dropdown :text="$i18n.locale" right>-->
+<!--              <b-dropdown-item-->
+<!--                v-for="locale in availableLocales"-->
+<!--                :key="locale.code"-->
+<!--                @click="setLocale(locale.code)"-->
+<!--              >{{ locale.code }}-->
+<!--              </b-dropdown-item>-->
+<!--            </b-nav-item-dropdown>-->
           </b-navbar-nav>
 
           <b-navbar-nav class="navbar-nav--admin" v-if="$auth.loggedIn">

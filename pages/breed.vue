@@ -41,10 +41,11 @@ export default {
   components: { BreedInfo, BreedBox, PageTitle },
   computed: {
     type() {
-      const routerName = this.$route.name;
-      if (!routerName) return '';
-      if (routerName === 'french-bulldog') return 'frenchBulldog';
-      return routerName;
+      // const routerName = this.$route.name;
+      // if (!routerName) return '';
+      // if (routerName === 'french-bulldog') return 'frenchBulldog';
+      // return routerName;
+      return 'frenchBulldog';
     },
   },
   data() {
@@ -56,8 +57,8 @@ export default {
 
 <style lang="scss">
 .section--breed {
- img {
-   margin-bottom: 10px;
- }
+  img {
+    margin-bottom: 10px;
+  }
 }
 </style>

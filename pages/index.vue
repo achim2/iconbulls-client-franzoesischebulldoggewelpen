@@ -1,7 +1,7 @@
 <template>
   <div>
     <!--  Hero  -->
-    <section class="hero" :style="{ backgroundImage: 'url(' + require('@/assets/images/hero.jpeg') + ')' }">
+    <section class="hero" :style="{ backgroundImage: 'url(' + require('@/assets/images/french_bulldog_0.JPG') + ')' }">
       <!--      <div class="container">-->
       <div class="hero__inner">
         <h1 class="hero__title">{{ $t('hero title') }}</h1>
@@ -14,10 +14,10 @@
         <PageText :text="$t('home text 0')" class="mt-5"/>
         <PageText :text="$t('home text 1')"/>
 
-        <div class="text-center mb-5">
-          <nuxtLink :to="localePath({name: 'french-bulldog'})" class="btn btn-info">{{ $t('frenchBulldog') }}</nuxtLink>
-          <nuxtLink :to="localePath({name: 'dachshund'})" class="btn btn-info">{{ $t('dachshund') }}</nuxtLink>
-        </div>
+<!--        <div class="text-center mb-5">-->
+<!--          <nuxtLink :to="localePath({name: 'french-bulldog'})" class="btn btn-info">{{ $t('frenchBulldog') }}</nuxtLink>-->
+<!--          <nuxtLink :to="localePath({name: 'dachshund'})" class="btn btn-info">{{ $t('dachshund') }}</nuxtLink>-->
+<!--        </div>-->
       </div>
     </section>
 
@@ -42,24 +42,24 @@
         <PageTitle :title="$t('Our customers said')" class="mt-5"/>
         <div class="row">
           <div class="col-md-6">
-            <BreedBox title="'Tökéletes Családtag'"
-                      description="'Életünk legjobb döntése volt az Icon Bullstól választani kiskutyát! Kicsit tartottunk tőle, hogy egy ilyen masszív felépítésű kutya hogyan illeszkedik majd be a családba, de a kis Bully-nk egy igazi kezesbárány. Hihetetlenül stabil idegrendszere van, imádja a gyerekeket, nulla agresszió, csak tiszta szeretet. Látszik a profi háttér és a gondos szocializáció.'"/>
+            <BreedBox title="'Das perfekte Familienmitglied'"
+                      description="'Die Entscheidung für einen Welpen von Icon Bulls war die beste Entscheidung unseres Lebens! Wir hatten zunächst etwas Bedenken, wie sich ein so massig gebauter Hund in unsere Familie einfügen würde, aber unser kleiner Bully ist ein echtes Schmusetier. Er hat ein unglaublich ausgeglichenes Temperament, liebt Kinder, zeigt keinerlei Aggressivität, sondern nur pure Liebe. Man sieht, dass er professionell aufgezogen und sorgfältig sozialisiert wurde.'"/>
           </div>
           <div class="col-md-6">
             <BreedBox title="'Elite-Qualität'"
                       description="'Genetik lügt nicht! Schon am ersten Tag sah man dem Welpen an, dass er aus einer Elite-Blutlinie stammt. Er ist muskulös, athletisch und hat eine Ausstrahlung wie ein echter Champion. Wer keine Kompromisse eingehen will und wirklich die 'Top-Kategorie' der Bullies sucht, dem kann ich Icon Bulls nur wärmstens empfehlen. Einfach brutal gute Hunde!'"/>
           </div>
           <div class="col-md-6">
-            <BreedBox title="'Egyszerűen imádjuk'"
-                      description="'A kutyánk temperamentuma egyszerűen zseniális. Játékos és energikus, amikor a parkban vagyunk, de otthon a kanapén egy nyugodt, bújós mackó. Tökéletesen alkalmazkodik a család ritmusához. Látszik, hogy a tenyésztésnél nemcsak a küllemre, hanem a belső tulajdonságokra is hatalmas hangsúlyt fektettek. Hálásak vagyunk érte!'"/>
+            <BreedBox title="'Wir lieben es einfach'"
+                      description="'Das Temperament unseres Hundes ist einfach genial. Im Park ist er verspielt und voller Energie, zu Hause auf dem Sofa hingegen ein ruhiger, verschmuster Teddybär. Er passt sich perfekt dem Rhythmus unserer Familie an. Man merkt, dass bei der Zucht nicht nur Wert auf das Aussehen, sondern auch auf die inneren Eigenschaften gelegt wurde. Dafür sind wir sehr dankbar!'"/>
           </div>
           <div class="col-md-6">
             <BreedBox title="'Intelligent und führig'"
                       description="'Viele denken, dass es bei dieser Rasse nur um das Aussehen geht, aber die Hunde von Icon Bulls beweisen das Gegenteil. Unser Rüde sieht nicht nur unglaublich gut aus, sondern ist auch wahnsinnig intelligent und lernt extrem schnell. Diese Hunde machen nicht nur an der Leine eine 'fasse' Figur, sondern haben auch richtig was im Köpfchen. Ein echter Partner für den Alltag!'"/>
           </div>
           <div class="col-md-6">
-            <BreedBox title="'Legjobb választás'"
-                      description="'Nem ragozom túl: egyszerűen fantasztikus kutyát kaptunk tőlük. Minden várakozásunkat felülmúlta mind külsőleg, mind belsőleg. Aki igazi, minőségi Bullyt keres, annak csak ajánlani tudom az Icon Bullst. Profi csapat, csúcskategóriás kutyák. Köszönjük!'"/>
+            <BreedBox title="'Beste Wahl'"
+                      description="'Ich will es nicht übertreiben: Wir haben einfach einen fantastischen Hund von ihnen bekommen. Er hat alle unsere Erwartungen übertroffen, sowohl äußerlich als auch innerlich. Wer einen echten, hochwertigen Bullterrier sucht, dem kann ich Icon Bulls nur empfehlen. Ein professionelles Team, Hunde der Spitzenklasse. Vielen Dank!'"/>
           </div>
           <div class="col-md-6">
             <BreedBox title="'Selbstbewusster Begleiter'"
@@ -77,7 +77,7 @@
         <PageText :text="$t('home text 5')"/>
 
         <div class="text-center mb-2">
-          <nuxtLink :to="localePath({name: 'contact'})" class="btn btn-info">{{ $t('any question') }}</nuxtLink>
+          <nuxtLink :to="localePath({name: 'kontaktiere'})" class="btn btn-info">{{ $t('any question') }}</nuxtLink>
         </div>
       </div>
     </section>

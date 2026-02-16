@@ -10,7 +10,7 @@
         {{ $t('contact text 0') }}
         <b><a :href="'mailto: ' + info.email">{{ info.email }}</a></b>
         {{ $t('contact text 1') }}
-        <b><a :href="'tel: ' + info.phone">{{ info.phone }}</a></b>
+        <b><a :href="'tel: ' + info.phone">{{ info.phoneAt }}</a></b>
         .
       </p>
 

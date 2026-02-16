@@ -46,7 +46,7 @@ export default {
 
   //home page
   'hero title': 'Hallo, wir sind der Icon Bulls Kennel!',
-  'home text 0': 'Wenn es um französische Bulldoggen oder Dackel geht, sind wir definitiv einer der besten Zwinger Ungarns. Wir gehören zu den Züchtern, die die schönsten Hunde Ungarns haben.',
+  'home text 0': 'Wenn es um französische Bulldoggen geht, sind wir definitiv einer der besten Zwinger Ungarns. Wir gehören zu den Züchtern, die die schönsten Hunde Ungarns besitzen.',
   'home text 1': 'Wir haben Rassen ausgewählt. Wir züchten Hunde unter ständiger ärztlicher Aufsicht, um sicherzustellen, dass die Welpen ein qualitativ hochwertiges Leben haben. Ihr schönes glänzendes Haar zeigt die Gesundheit ihres Immunsystems. Sie können aus den schönsten Hunden wählen. Wir stehen in ständigem Kontakt mit unseren Kunden.',
   'home text 3': 'Es war ein langer Weg nach oben, Jahre lang. Aber wir sind endlich da. Heute bieten wir die reinsten Blutfranzosen an, die über Generationen hinweg gekreuzt wurden. Kein Fehler für eine vollblütige französische Bulldogge bei uns!',
   'home text 4': 'Heaths Preis ist alles inklusive: Haustierpass, Versandkosten zum nächstgelegenen Flughafen, neue Reisekiste, Mikrochip, Tierarztcheck vor dem Flug, Gesundheitsgarantie und Gesundheitsbescheinigung.',

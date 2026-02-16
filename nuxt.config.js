@@ -140,24 +140,29 @@ export default {
         },
         {
           name: 'available-puppies',
-          path: '/puppies/available-puppies',
+          path: '/welpen/verfuegbare-welpen',
           component: 'pages/puppies.vue',
         },
         {
           name: 'puppies-with-parents',
-          path: '/puppies/puppies-with-parents',
+          path: '/welpen/welpen-mit-eltern',
           component: 'pages/puppies.vue',
         },
         {
-          name: 'french-bulldog',
-          path: '/breed/french-bulldog',
+          name: 'breedDE',
+          path: '/rasseninfo/franzoesische-bulldogge',
           component: 'pages/breed.vue',
         },
-        {
-          name: 'dachshund',
-          path: '/breed/dachshund',
-          component: 'pages/breed.vue',
-        },
+        // {
+        //   name: 'french-bulldog',
+        //   path: '/breed/french-bulldog',
+        //   component: 'pages/breed.vue',
+        // },
+        // {
+        //   name: 'dachshund',
+        //   path: '/breed/dachshund',
+        //   component: 'pages/breed.vue',
+        // },
 
       );
     }
@@ -178,8 +183,8 @@ export default {
   i18n: {
     locales: [
       { code: 'de', iso: 'de-DE', file: 'de.js' },
-      { code: 'hu', iso: 'hu-HU', file: 'hu.js' },
-      { code: 'en', iso: 'en-US', file: 'en.js' },
+      // { code: 'hu', iso: 'hu-HU', file: 'hu.js' },
+      // { code: 'en', iso: 'en-US', file: 'en.js' },
     ],
     defaultLocale: 'en',
     lazy: true,
