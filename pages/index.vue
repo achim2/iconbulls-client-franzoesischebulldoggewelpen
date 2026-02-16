@@ -1,7 +1,7 @@
 <template>
   <div>
     <!--  Hero  -->
-    <section class="hero" :style="{ backgroundImage: 'url(' + require('@/assets/images/french_bulldog_0.JPG') + ')' }">
+    <section class="hero" :style="{ backgroundImage: 'url(' + require('@/assets/images/hero_new.jpeg') + ')' }">
       <div class="hero__inner">
         <h1 class="hero__title">{{ $t('hero title') }}</h1>
       </div>
