@@ -86,6 +86,7 @@ export default {
   },
   head() {
     return {
+      title: this.product.metaName,
       meta: [
         //facebook
         // { property: 'og:site_name', content: 'I Love Painting' },

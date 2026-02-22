@@ -12,7 +12,10 @@ export default {
     ],
     link: [
       { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap'
+      },
 
       { rel: 'apple-touch-icon', type: 'image/png', sizes: '57x57', href: '/favicon/apple-icon-57x57.png' },
       { rel: 'apple-touch-icon', type: 'image/png', sizes: '60x60', href: '/favicon/apple-icon-60x60.png' },
@@ -68,6 +71,8 @@ export default {
     '@nuxtjs/style-resources',
     'nuxt-i18n',
     'bootstrap-vue/nuxt',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots',
   ],
 
   serverMiddleware: [
@@ -117,7 +122,7 @@ export default {
     babel: {
       compact: true,
     },
-    transpile : ['vue-youtube-embed'],
+    transpile: ['vue-youtube-embed'],
   },
 
   router: {
@@ -212,6 +217,40 @@ export default {
   },
 
   googleAnalytics: {
-    id: 'G-Y5FR93D6XW'
+    id: ''
+  },
+
+  sitemap: {
+    hostname: 'https://franzoesischebulldoggewelpen.at/',
+    gzip: true,
+    routes: [
+      '/rasseninfo/franzoesische-bulldogge',
+      '/von-eigentuemern-gesendet',
+      '/transport',
+      '/welpen/verfuegbare-welpen',
+      '/welpen/welpen-mit-eltern',
+      '/kontaktiere',
+      '/impressum'
+    ],
+    exclude: [
+      '/admin/**',
+      '/admin',
+      '/signup',
+      '/login',
+      '/puppies',
+      '/breed',
+      '/about',
+    ],
+  },
+
+  robots: {
+    UserAgent: '*',
+    Disallow: [
+      '/admin',
+      '/login',
+      '/signup',
+      '/api'
+    ],
+    Sitemap: 'https://franzoesischebulldoggewelpen.at/sitemap.xml'
   }
 };
