@@ -113,6 +113,7 @@ export default {
         },
         { property: 'og:image:width', content: '1363' },
         { property: 'og:image:height', content: '911' },
+        { property: 'og:image:type', content: 'image/jpeg' },
 
         //twitter
         // { name: "twitter:site", content: "@bobross" },

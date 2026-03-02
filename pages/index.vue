@@ -90,10 +90,71 @@ import PageSubtitle from '../components/PageSubtitle';
 
 export default {
   components: { PageSubtitle, Widget, PageText },
+  head() {
+    return {
+      title: this.siteName,
+      meta: [
+        //facebook
+        // { property: 'og:site_name', content: 'I Love Painting' },
+        // { hid: 'og:type', property: 'og:type', content: 'website' },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: this.metaUrl,
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.siteName,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.siteDescription,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.metaFilename,
+        },
+        { property: 'og:image:width', content: '1600' },
+        { property: 'og:image:height', content: '1069' },
+        { property: 'og:image:type', content: 'image/jpeg' },
+
+        //twitter
+        // { name: "twitter:site", content: "@bobross" },
+        // { name: "twitter:card", content: "summary_large_image" },
+        {
+          hid: 'twitter:url',
+          name: 'twitter:url',
+          content: this.metaUrl,
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.siteName,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.siteDescription,
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.metaFilename,
+        },
+      ]
+    };
+  },
   data() {
     return {
       available: [],
       notAvailable: [],
+      siteName: 'Französische bulldogge welpen',
+      siteDescription: 'Eine Website über französische Bulldoggen.',
+      metaUrl: `${process.env.baseUrl}`,
+      metaFilename: require('~/assets/images/french_bulldog_3.jpg'),
     };
   },
   mounted() {
