@@ -55,6 +55,9 @@ export const mutations = {
 }
 
 export const actions = {
+  async nuxtServerInit({ dispatch }) {
+    await dispatch('fetchInfo').catch(() => {});
+  },
   async fetchInfo({ commit }) {
     await this.$axios.get('/info')
       .then((res) => {

@@ -22,7 +22,12 @@ import PageTitle from '../components/PageTitle';
 import PageText from '../components/PageText';
 
 export default {
-  components: { PageText, PageTitle }
+  components: { PageText, PageTitle },
+  head() {
+    return {
+      title: `${this.$t('how to get')} | Französische Bulldogge Welpen`,
+    };
+  },
 };
 </script>
 

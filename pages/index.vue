@@ -157,15 +157,10 @@ export default {
       metaFilename: require('~/assets/images/french_bulldog_3.jpg'),
     };
   },
-  mounted() {
-    this.$axios.$get('/products', { params: { limit: 2, available: true } })
-      .then(res => {
-        this.available = res;
-      });
-    // this.$axios.$get('/products', { params: { limit: 2, available: false } })
-    //   .then(res => {
-    //     this.notAvailable = res;
-    //   });
+  async asyncData({ $axios }) {
+    const available = await $axios.$get('/products', { params: { limit: 2, available: true } })
+      .catch(() => []);
+    return { available };
   },
 };
 </script>

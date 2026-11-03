@@ -62,6 +62,11 @@ import { mapGetters } from 'vuex';
 
 export default {
   components: { PageText, PageTitle },
+  head() {
+    return {
+      title: `${this.$t('contact')} | Französische Bulldogge Welpen`,
+    };
+  },
   data() {
     return {
       // form: {

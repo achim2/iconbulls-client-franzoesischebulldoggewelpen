@@ -15,29 +15,33 @@ import PageSubtitle from '../components/PageSubtitle';
 
 export default {
   components: { PageSubtitle, Widget, PageText },
+  head() {
+    const titleKey = this.type === 'puppies-with-parents' ? 'puppies with parents' : 'available puppies';
+    return {
+      title: `${this.$t(titleKey)} | Französische Bulldogge Welpen`,
+    };
+  },
   data() {
     return {
       type: '',
       filtered: [],
     };
   },
-  mounted() {
-    const routeName = this.$route.name;
+  async asyncData({ $axios, route }) {
+    const routeName = route.name;
+    let filtered = [];
     if (routeName === 'available-puppies') {
-      this.$axios.$get('/products', { params: { available: true } })
-        .then(res => {
-          this.filtered = res;
-        });
+      filtered = await $axios.$get('/products', { params: { available: true } })
+        .catch(() => []);
     } else if (routeName === 'puppies-with-parents') {
-      this.$axios.$get('/products', { params: { available: false } })
-        .then(res => {
-          this.filtered = res;
-        });
+      filtered = await $axios.$get('/products', { params: { available: false } })
+        .catch(() => []);
     }
 
-    if (routeName !== '') {
-      this.type = routeName;
-    }
+    return {
+      type: routeName || '',
+      filtered,
+    };
   },
 };
 </script>

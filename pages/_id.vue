@@ -76,17 +76,24 @@ import PageTitle from '../components/PageTitle';
 
 export default {
   async asyncData({ params, $axios, error }) {
-    // const product = await $axios.$get(`https://api.nuxtjs.dev/posts/${params.id}`) // id: 1
-    const product = await $axios.$get(`products/${params.id}`);
+    let product;
+    try {
+      product = await $axios.$get(`products/${params.id}`);
+    } catch (err) {
+      const notFound = err.response && err.response.status === 404;
+      return error({ statusCode: notFound ? 404 : 500 });
+    }
+    const descriptions = (product.description || []).filter(desc => desc.text);
+    const description = descriptions.find(desc => desc.locale === 'de') || descriptions[0];
     product.metaUrl = `${process.env.baseUrl}/${product.slug}`;
     product.metaName = product.name;
     product.metaFilename = `${process.env.imagePath}/${product.selectedFilename}`;
-    product.metaDescription = product.description[0].text;
+    product.metaDescription = description ? description.text : '';
     return { product };
   },
   head() {
     return {
-      title: this.product.metaName,
+      title: `${this.product.metaName} | Französische Bulldogge Welpen`,
       meta: [
         //facebook
         // { property: 'og:site_name', content: 'I Love Painting' },

@@ -26,17 +26,20 @@ import CustomImage from '../components/CustomImage';
 
 export default {
   components: { CustomImage, PageTitle },
+  head() {
+    return {
+      title: `${this.$t('gallery')} | Französische Bulldogge Welpen`,
+    };
+  },
   data() {
     return {
       items: [],
     };
   },
-  mounted() {
-    this.$axios.$get('/gallery')
-      .then(res => {
-        this.items = res;
-      })
-      .catch(err => console.log(err));
+  async asyncData({ $axios }) {
+    const items = await $axios.$get('/gallery')
+      .catch(() => []);
+    return { items };
   },
 };</script>
 

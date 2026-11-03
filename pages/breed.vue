@@ -39,6 +39,11 @@ import BreedInfo from '../components/BreedInfo';
 
 export default {
   components: { BreedInfo, BreedBox, PageTitle },
+  head() {
+    return {
+      title: `${this.$t('breed')} | Französische Bulldogge Welpen`,
+    };
+  },
   computed: {
     type() {
       // const routerName = this.$route.name;

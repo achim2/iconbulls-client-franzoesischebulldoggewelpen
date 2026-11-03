@@ -26,8 +26,13 @@ export default {
     Header,
     Footer,
   },
-  mounted() {
-    this.$store.dispatch('fetchInfo');
+  head() {
+    const path = this.$route.path.replace(/\/+$/, '') || '/';
+    return {
+      link: [
+        { hid: 'canonical', rel: 'canonical', href: `https://franzoesischebulldoggewelpen.at${path}` },
+      ],
+    };
   },
 };
 </script>

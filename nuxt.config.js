@@ -1,9 +1,24 @@
+import axios from 'axios';
+
+const sitemapRoutes = [
+  '/rasseninfo/franzoesische-bulldogge',
+  '/von-eigentuemern-gesendet',
+  '/transport',
+  '/welpen/verfuegbare-welpen',
+  '/welpen/welpen-mit-eltern',
+  '/kontaktiere',
+  '/impressum'
+];
+
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   // ssr: false,
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
+    htmlAttrs: {
+      lang: 'de-AT',
+    },
     title: 'Französische bulldogge welpen',
     meta: [
       { charset: 'utf-8' },
@@ -51,7 +66,6 @@ export default {
     '~/plugins/dateFilter',
     '~/plugins/loading',
     '~/plugins/storage',
-    '~/plugins/fbPixel',
     { src: '~/plugins/youtube.js', ssr: false }
   ],
 
@@ -191,17 +205,14 @@ export default {
       { code: 'hu', iso: 'hu-HU', file: 'hu.js' },
       { code: 'en', iso: 'en-US', file: 'en.js' },
     ],
-    defaultLocale: 'en',
+    defaultLocale: 'de',
     lazy: true,
     langDir: 'i18n/',
     parsePages: false,
     vueI18n: {
-      fallbackLocale: 'en',
+      fallbackLocale: 'de',
     },
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-    },
+    detectBrowserLanguage: false,
     seo: false,
     vueI18nLoader: true,
     strategy: 'no_prefix',
@@ -223,15 +234,19 @@ export default {
   sitemap: {
     hostname: 'https://franzoesischebulldoggewelpen.at/',
     gzip: true,
-    routes: [
-      '/rasseninfo/franzoesische-bulldogge',
-      '/von-eigentuemern-gesendet',
-      '/transport',
-      '/welpen/verfuegbare-welpen',
-      '/welpen/welpen-mit-eltern',
-      '/kontaktiere',
-      '/impressum'
-    ],
+    routes: async () => {
+      try {
+        const responses = await Promise.all([true, false].map(available =>
+          axios.get(`${process.env.BASE_URL}/api/products`, { params: { available }, timeout: 10000 })
+        ));
+        const puppyRoutes = [].concat(...responses.map(res => res.data))
+          .filter(product => product.slug)
+          .map(product => `/${product.slug}`);
+        return sitemapRoutes.concat(puppyRoutes);
+      } catch (err) {
+        return sitemapRoutes;
+      }
+    },
     exclude: [
       '/admin/**',
       '/admin',
@@ -249,7 +264,10 @@ export default {
       '/admin',
       '/login',
       '/signup',
-      '/api'
+      '/api/'
+    ],
+    Allow: [
+      '/api/uploads/'
     ],
     Sitemap: 'https://franzoesischebulldoggewelpen.at/sitemap.xml'
   }

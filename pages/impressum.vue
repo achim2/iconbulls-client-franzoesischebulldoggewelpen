@@ -47,6 +47,11 @@ import { mapGetters } from "vuex";
 
 export default {
   components: { PageText, PageTitle },
+  head() {
+    return {
+      title: `${this.$t('impressum')} | Französische Bulldogge Welpen`,
+    };
+  },
   computed: {
     ...mapGetters([
       'info'
